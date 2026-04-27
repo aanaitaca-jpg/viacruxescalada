@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Via Crux Escalada – Praia Grande/SP</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --deep: #0d1117;
+    --blue: #1a6cff;
+    --blue-light: #3a82ff;
+    --blue-glow: #1a6cff33;
+    --white: #f0f4ff;
+    --gray: #8899bb;
+    --card-bg: #111827;
+    --card-border: #1e2d4a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--deep);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO BANNER ─── */
+  .hero-badge {
+    background: linear-gradient(90deg, var(--blue) 0%, #0052cc 100%);
+    text-align: center;
+    padding: 12px 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-badge::before {
+    content: '★ ';
+  }
+  .hero-badge::after {
+    content: ' ★';
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 5%;
+    background: rgba(10,10,10,0.95);
+    border-bottom: 1px solid var(--card-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  /* SVG logo built inline */
+  .logo-mark {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .logo-text .top {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: var(--white);
+    letter-spacing: 0.06em;
+  }
+  .logo-text .sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--gray);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue-light); }
+
+  .nav-cta {
+    background: var(--blue);
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--blue-light) !important; color: #fff !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 100%, var(--blue-glow) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 40% at 20% 0%, #0a2040 0%, transparent 60%),
+      var(--deep);
+    z-index: 0;
+  }
+
+  /* Rock texture lines */
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 40px,
+        rgba(26,108,255,0.03) 40px,
+        rgba(26,108,255,0.03) 41px
+      );
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 860px; }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--blue-light);
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 11vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .hero h1 .accent { color: var(--blue); }
+
+  .hero-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 40px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--blue);
+    color: #fff;
+    padding: 14px 36px;
+    border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--blue-light); transform: translateY(-2px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    padding: 14px 36px;
+    border-radius: 4px;
+    border: 1px solid var(--card-border);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.1s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--blue-light); color: var(--blue-light); transform: translateY(-2px); }
+
+  /* stats strip */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    margin-top: 70px;
+    width: 100%;
+    max-width: 700px;
+  }
+  .stat {
+    padding: 24px 10px;
+    text-align: center;
+    border-right: 1px solid var(--card-border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.4rem;
+    color: var(--blue-light);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+
+  /* ─── SECTIONS ─── */
+  section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 40px;
+    line-height: 1;
+  }
+
+  /* ─── NOTÍCIAS ─── */
+  .news-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+  }
+  @media(max-width:768px){.news-grid{grid-template-columns:1fr;}}
+
+  .news-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .news-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+
+  .news-card-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(135deg, #0d2140, #1a3a6a);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Placeholder climbing wall graphic */
+  .news-thumb {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+  }
+  .news-thumb-featured {
+    height: 260px;
+  }
+
+  .news-body { padding: 24px; }
+
+  .news-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 10px;
+  }
+
+  .news-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+  .news-card:first-child .news-title { font-size: 1.5rem; }
+
+  .news-excerpt {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .news-date {
+    font-size: 0.78rem;
+    color: #556680;
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── HORÁRIOS ─── */
+  #horarios { background: #080d14; }
+  #horarios > * { max-width: 1200px; margin-left: auto; margin-right: auto; }
+
+  .schedule-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5% 80px;
+  }
+  @media(max-width:768px){.schedule-wrap{grid-template-columns:1fr;}}
+
+  .schedule-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 32px;
+  }
+  .schedule-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: var(--blue-light);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .schedule-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--card-border);
+    font-size: 0.95rem;
+  }
+  .schedule-row:last-child { border-bottom: none; }
+  .day { color: var(--gray); font-family: 'Barlow Condensed', sans-serif; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.85rem; }
+  .time { color: var(--white); font-weight: 600; }
+  .note { color: var(--blue-light); font-size: 0.8rem; font-family: 'Barlow Condensed'; letter-spacing: 0.05em; }
+
+  /* ─── PREÇOS ─── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .price-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 28px 24px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .price-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+  .price-card.featured {
+    border-color: var(--blue);
+    background: linear-gradient(160deg, #111e38, var(--card-bg));
+    position: relative;
+    overflow: hidden;
+  }
+  .price-card.featured::before {
+    content: 'MELHOR CUSTO';
+    position: absolute;
+    top: 14px; right: -22px;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 4px 28px;
+    transform: rotate(30deg);
+  }
+
+  .price-card-icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .price-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 16px;
+  }
+  .price-main {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: var(--white);
+    line-height: 1;
+  }
+  .price-unit {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 16px;
+    margin-top: 4px;
+  }
+  .price-items {
+    list-style: none;
+    margin-top: 16px;
+    border-top: 1px solid var(--card-border);
+    padding-top: 16px;
+  }
+  .price-items li {
+    font-size: 0.88rem;
+    color: var(--gray);
+    padding: 6px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .price-items li span { color: var(--white); font-weight: 600; }
+
+  /* equipment */
+  .equip-strip {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .equip-badge {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .equip-badge .eq-icon { font-size: 1.4rem; }
+  .equip-badge .eq-info .name { font-family: 'Barlow Condensed'; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.85rem; }
+  .equip-badge .eq-info .price { color: var(--blue-light); font-weight: 700; font-size: 0.95rem; }
+
+  /* ─── CONTATO ─── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  @media(max-width:768px){.contact-grid{grid-template-columns:1fr;}}
+
+  .contact-block h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .contact-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--blue-glow);
+    border: 1px solid var(--blue);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .contact-info .label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  .contact-info .value {
+    font-size: 0.95rem;
+    color: var(--white);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25d366;
+    color: #000;
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 10px;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .whatsapp-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+  .map-embed {
+    width: 100%;
+    height: 320px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+  }
+  .map-embed iframe { width: 100%; height: 100%; border: 0; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #060a10;
+    border-top: 1px solid var(--card-border);
+    padding: 40px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: gap;
+    gap: 20px;
+  }
+
+  .footer-left .brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.08em;
+    color: var(--white);
+  }
+  .footer-left .tagline {
+    font-size: 0.78rem;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 14px;
+    list-style: none;
+  }
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .footer-social a:hover { border-color: var(--blue); color: var(--blue-light); }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: #445566;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--card-border);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content > * {
+    animation: fadeUp 0.7s ease backwards;
+  }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero h1 { animation-delay: 0.25s; }
+  .hero-sub { animation-delay: 0.4s; }
+  .hero-actions { animation-delay: 0.55s; }
+  .stats-strip { animation-delay: 0.7s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media(max-width:900px){
+    nav { flex-wrap: wrap; gap: 12px; }
+    .nav-links { gap: 18px; }
+  }
+  @media(max-width:600px){
+    .nav-links { display: none; }
+    .hero { padding: 50px 5% 40px; }
+    .stats-strip { grid-template-columns: 1fr 1fr 1fr; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ★ DESTAQUE TOPO ★ -->
+<div class="hero-badge">
+  O Melhor Centro de Treinamento de Escalada da Baixada Santista
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <!-- SVG Logo Mark (Cruz + Montanha) -->
+    <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Mountain silhouette -->
+      <polygon points="24,4 44,40 4,40" fill="#0d1a2e" stroke="#1a6cff" stroke-width="1.5" stroke-linejoin="round"/>
+      <!-- Inner peak highlight -->
+      <polygon points="24,10 36,36 12,36" fill="#0a1220" opacity="0.8"/>
+      <!-- Cross / Cruz (via crux) -->
+      <rect x="21.5" y="14" width="5" height="16" rx="1" fill="#1a6cff"/>
+      <rect x="15" y="19.5" width="18" height="5" rx="1" fill="#1a6cff"/>
+      <!-- Glow dot -->
+      <circle cx="24" cy="21.5" r="2.5" fill="#3a82ff" opacity="0.7"/>
+    </svg>
+    <div class="logo-text">
+      <span class="top">VIA CRUX</span>
+      <span class="sub">Escalada • Praia Grande</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#noticias">Notícias</a></li>
+    <li><a href="#horarios">Horários</a></li>
+    <li><a href="#precos">Planos</a></li>
+    <li><a href="#contato" class="nav-cta">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Escalada Indoor • Praia Grande / SP</div>
+    <h1>VIA<br><span class="accent">CRUX</span></h1>
+    <p class="hero-sub">A 1ª Academia de Escalada Indoor da Baixada Santista</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5513997976799" class="btn-primary" target="_blank">Agendar Aula Experimental</a>
+      <a href="#horarios" class="btn-secondary">Ver Horários</a>
+    </div>
+    <div class="stats-strip">
+      <div class="stat">
+        <div class="stat-number">1ª</div>
+        <div class="stat-label">Academia<br>da Região</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">R$50</div>
+        <div class="stat-label">Aula<br>Experimental</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">3×</div>
+        <div class="stat-label">Modalidades<br>Disponíveis</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTÍCIAS -->
+<section id="noticias">
+  <div class="section-label">Últimas Notícias</div>
+  <h2>Escalada em Destaque</h2>
+  <div class="news-grid">
+
+    <!-- Notícia principal -->
+    <a href="https://ge.globo.com/sp/santos-e-regiao/noticia/2026/04/25/atleta-de-praia-grande-supera-favorito-e-conquista-campeonato-brasileiro-de-escalada.ghtml"
+       class="news-card" target="_blank" rel="noopener">
+      <div class="news-thumb news-thumb-featured" style="background:linear-gradient(135deg,#051530,#0d2a52);">
+        <svg viewBox="0 0 320 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;">
+          <!-- Podium / trophy silhouette -->
+          <polygon points="160,40 260,160 60,160" fill="none" stroke="#1a6cff" stroke-width="2" opacity="0.4"/>
+          <polygon points="160,60 230,150 90,150" fill="none" stroke="#1a6cff" stroke-width="1" opacity="0.25"/>
+          <text x="160" y="130" text-anchor="middle" font-size="72" fill="#1a6cff" opacity="0.15" font-family="sans-serif">🏆</text>
+          <!-- Stars -->
+          <circle cx="50" cy="40" r="1.5" fill="#3a82ff" opacity="0.6"/>
+          <circle cx="270" cy="80" r="1.5" fill="#3a82ff" opacity="0.6"/>
+          <circle cx="100" cy="170" r="1" fill="#3a82ff" opacity="0.4"/>
+          <circle cx="220" cy="30" r="1" fill="#3a82ff" opacity="0.4"/>
+        </svg>
+        <span style="position:relative;z-index:1;font-size:3rem;">🏆</span>
+      </div>
+      <div class="news-body">
+        <div class="news-tag">🏅 Destaque Nacional · Abril 2026</div>
+        <div class="news-title">Atleta de Praia Grande supera favorito e conquista Campeonato Brasileiro de Escalada</div>
+        <div class="news-excerpt">Representando nossa cidade, o atleta de Praia Grande brilhou no Campeonato Brasileiro de Escalada 2026 realizado em Curitiba, desbancando o atual campeão e se consagrando no pódio nacional. Uma conquista que coloca Praia Grande no mapa da escalada brasileira.</div>
+        <div class="news-date">📰 Globo Esporte · 25 de abril de 2026 &nbsp;→ Leia a matéria completa</div>
+      </div>
+    </a>
+
+    <!-- Notícias secundárias -->
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <a href="https://altamontanha.com/novos-campeoes-recorde-brasileiro-e-paraescalada-em-destaque-marcam-inicio-do-campeonato-brasileiro-de-escalada-2026/"
+         class="news-card" target="_blank" rel="noopener">
+        <div class="news-thumb" style="height:120px;background:linear-gradient(135deg,#051a30,#0a2a4a);">
+          <span style="font-size:2rem;">⚡</span>
+        </div>
+        <div class="news-body">
+          <div class="news-tag">Recordes · Abril 2026</div>
+          <div class="news-title">Novo recorde brasileiro na Velocidade e novos campeões marcam o Brasileiro 2026</div>
+          <div class="news-date">AltaMontanha · 22 abr 2026</div>
+        </div>
+      </a>
+
+      <a href="https://www.semanapop.com.br/brasileiros-de-escalada-2026-revelam-novos-campeoes/"
+         class="news-card" target="_blank" rel="noopener">
+        <div class="news-thumb" style="height:120px;background:linear-gradient(135deg,#0a1a0a,#0a2a1a);">
+          <span style="font-size:2rem;">🧗</span>
+        </div>
+        <div class="news-body">
+          <div class="news-tag">Boulder · Abril 2026</div>
+          <div class="news-title">Campeonato Brasileiro 2026: Boulder revela novos campeões em Curitiba</div>
+          <div class="news-date">Semana Pop · 19 abr 2026</div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- HORÁRIOS -->
+<div id="horarios" style="background:#07090e;">
+  <section style="padding-bottom:0;">
+    <div class="section-label">Funcionamento</div>
+    <h2>Horários de Aulas</h2>
+  </section>
+  <div class="schedule-wrap">
+    <div class="schedule-card">
+      <h3>📅 Dias de Semana</h3>
+      <div class="schedule-row">
+        <span class="day">Segunda-feira</span>
+        <span class="time">18h – 21h30</span>
+      </div>
+      <div class="schedule-row">
+        <span class="day">Terça-feira</span>
+        <span class="time">18h – 21h30</span>
+      </div>
+      <div class="schedule-row">
+        <span class="day">Quarta-feira</span>
+        <span class="time">18h – 21h30</span>
+      </div>
+      <div class="schedule-row">
+        <span class="day">Quinta-feira</span>
+        <span class="time">18h – 21h30</span>
+      </div>
+      <div class="schedule-row">
+        <span class="day">Sexta-feira</span>
+        <span class="time">18h – 21h30</span>
+      </div>
+    </div>
+    <div class="schedule-card">
+      <h3>📅 Sábado</h3>
+      <div class="schedule-row" style="flex-direction:column;align-items:flex-start;gap:8px;">
+        <span class="note">⚠️ Somente com Agendamento Prévio</span>
+        <span class="day">Mínimo de 6 pessoas</span>
+      </div>
+      <div style="margin-top:28px;padding:20px;background:#0a1a30;border-radius:6px;border:1px solid var(--blue);border-left: 4px solid var(--blue);">
+        <div style="font-family:'Barlow Condensed';font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:8px;">Para agendar:</div>
+        <a href="https://wa.me/5513997976799" style="color:#25d366;font-weight:700;font-size:0.95rem;text-decoration:none;">
+          📱 (13) 99797-6799
+        </a>
+        <div style="font-size:0.8rem;color:var(--gray);margin-top:6px;">Via WhatsApp</div>
+      </div>
+      <div style="margin-top:20px;padding:16px;background:var(--card-bg);border-radius:6px;">
+        <div style="font-family:'Barlow Condensed';font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;">Domingo</div>
+        <div style="color:#556680;font-size:0.9rem;">Fechado</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PREÇOS -->
+<section id="precos">
+  <div class="section-label">Planos & Valores</div>
+  <h2>Comece a Escalar</h2>
+
+  <div class="pricing-grid">
+
+    <div class="price-card">
+      <div class="price-card-icon">🧪</div>
+      <h3>Aula Experimental</h3>
+      <div class="price-main">R$50</div>
+      <div class="price-unit">por sessão</div>
+      <ul class="price-items">
+        <li>Sapatilha incluída <span>✓</span></li>
+        <li>Magnésio incluído <span>✓</span></li>
+        <li>Instrutor <span>✓</span></li>
+      </ul>
+    </div>
+
+    <div class="price-card">
+      <div class="price-card-icon">🎟️</div>
+      <h3>Sessão Avulsa</h3>
+      <div class="price-main">R$50</div>
+      <div class="price-unit">por sessão</div>
+      <ul class="price-items">
+        <li>Acesso à estrutura <span>✓</span></li>
+        <li>Sem fidelidade <span>✓</span></li>
+      </ul>
+    </div>
+
+    <div class="price-card">
+      <div class="price-card-icon">📅</div>
+      <h3>Planos Mensais</h3>
+      <div class="price-main">R$220</div>
+      <div class="price-unit">a partir de / mês</div>
+      <ul class="price-items">
+        <li>2× por semana <span>R$220</span></li>
+        <li>3× por semana <span>R$240</span></li>
+        <li>Livre <span>R$270</span></li>
+      </ul>
+    </div>
+
+    <div class="price-card featured">
+      <div class="price-card-icon">🏆</div>
+      <h3>Planos Semestrais</h3>
+      <div class="price-main">R$180</div>
+      <div class="price-unit">a partir de / mês</div>
+      <ul class="price-items">
+        <li>2× por semana <span>R$180/mês</span></li>
+        <li>3× por semana <span>R$200/mês</span></li>
+        <li>Livre <span>R$230/mês</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Equipamentos -->
+  <div style="margin-top:50px;">
+    <div class="section-label">Aluguel de Equipamentos</div>
+    <div class="equip-strip">
+      <div class="equip-badge">
+        <div class="eq-icon">👟</div>
+        <div class="eq-info">
+          <div class="name">Sapatilha</div>
+          <div class="price">R$10</div>
+        </div>
+      </div>
+      <div class="equip-badge">
+        <div class="eq-icon">🤲</div>
+        <div class="eq-info">
+          <div class="name">Magnésio</div>
+          <div class="price">R$5</div>
+        </div>
+      </div>
+      <div class="equip-badge">
+        <div class="eq-icon">🪢</div>
+        <div class="eq-info">
+          <div class="name">Cadeirinha</div>
+          <div class="price">R$10</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- CONTATO -->
+<section id="contato" style="background:#07090e;max-width:none;padding:80px 5%;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label">Onde Estamos</div>
+    <h2>Venha Escalar</h2>
+    <div class="contact-grid">
+      <div class="contact-block">
+        <h3>Entre em Contato</h3>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-info">
+            <div class="label">Endereço</div>
+            <div class="value">Rua Milton Daniels, 62<br>Quietude – Praia Grande / SP</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div class="contact-info">
+            <div class="label">WhatsApp</div>
+            <div class="value">(13) 99797-6799</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📸</div>
+          <div class="contact-info">
+            <div class="label">Instagram</div>
+            <div class="value">@viacruxescalada</div>
+          </div>
+        </div>
+        <a href="https://wa.me/5513997976799" class="whatsapp-btn" target="_blank">
+          💬 Fale pelo WhatsApp
+        </a>
+      </div>
+      <div>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.0!2d-46.413836!3d-24.002459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce1d0000000001%3A0x0!2sRua+Milton+Daniels%2C+62%2C+Praia+Grande%2C+SP!5e0!3m2!1spt!2sbr!4v1"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Via Crux Escalada – Localização">
+          </iframe>
+        </div>
+        <div style="margin-top:16px;padding:16px 20px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:6px;font-size:0.88rem;color:var(--gray);">
+          🚗 Fácil acesso com estacionamento próximo. Bairro Quietude, Praia Grande – SP
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="brand">VIA CRUX ESCALADA</div>
+    <div class="tagline">O Melhor Centro de Treinamento de Escalada da Baixada Santista</div>
+  </div>
+  <ul class="footer-social">
+    <li><a href="https://www.instagram.com/viacruxescalada/" target="_blank" title="Instagram">📸</a></li>
+    <li><a href="https://wa.me/5513997976799" target="_blank" title="WhatsApp">💬</a></li>
+    <li><a href="https://maps.google.com/?q=Rua+Milton+Daniels+62+Praia+Grande+SP" target="_blank" title="Maps">📍</a></li>
+  </ul>
+  <div class="footer-copy">
+    © 2026 Via Crux Escalada · Rua Milton Daniels, 62 – Praia Grande/SP · (13) 99797-6799
+  </div>
+</footer>
+
+</body>
+</html>
